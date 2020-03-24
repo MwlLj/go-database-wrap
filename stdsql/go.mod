@@ -1,4 +1,4 @@
-module github.com/MwlLj/go-database-wrap/stdsql
+module github.com/MwlLj/go-database-wrap
 
 go 1.12
 
