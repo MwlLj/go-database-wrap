@@ -28,6 +28,13 @@ func (self *CSql) Connect(driverName string, dial string) (*sql.DB, error) {
 	return self.db, err
 }
 
+func (self *CSql) FromDB(db *sql.DB) {
+	self.db = db
+	self.db.SetMaxOpenConns(20)
+	self.db.SetMaxIdleConns(10)
+	self.db.SetConnMaxLifetime(60 * time.Second)
+}
+
 func (self *CSql) Close() error {
 	if self.db != nil {
 		return self.db.Close()
